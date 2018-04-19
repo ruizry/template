@@ -47,7 +47,7 @@ class HomePage extends Component {
           <div>
             <h3> Login Successful </h3>
             <p> Username to go in db: { getProfile().nickname }</p>
-            <p> identifier to go in db: { getProfile().sub }</p>
+            <p> Identifier to go in db: { getProfile().sub }</p>
           </div>
         }
         {!loggedIn() &&
