@@ -1,18 +1,38 @@
 {
-  "name": "test-app",
-  "version": "0.1.0",
-  "private": true,
+  "name": "rysdev-template",
+  "version": "0.0.1",
+  "description": "Template with React, Redux, React Router and Auth0 authentication using API server and mongoose DB",
+  "author": "Ryan Ruiz",
+  "license": "MIT",
   "dependencies": {
+    "auth0-lock": "^11.2.3",
     "axios": "^0.18.0",
-    "mongodb": "^3.0.5",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "foreman": "^2.0.0",
+    "jwt-decode": "^2.2.0",
+    "mongoose": "^5.0.15",
+    "nodemon": "^1.17.3",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.1.1"
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2"
+  },
+  "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest-localstorage-mock": "^2.1.0",
+    "react-scripts": "1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-dev": "nf start -p 3000",
     "build": "react-scripts build",
+    "pretest": "npm run lint",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint src/"
   }
 }
