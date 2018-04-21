@@ -92,6 +92,33 @@ router.route('/comments/:comment_id')
     })
   });
 
+
+  router.get('/names/:nameIds', (req, res) => {
+    const nameIds = req.params.nameIds.split(',').map(mongoose.Types.ObjectId);
+    let names = {};
+    db.collection('names').find({ _id: { $in: nameIds }})
+       .each((err, name) => {
+         //assert.equal(null, err);
+  
+         if (!name) { // no more names
+           res.send({ names });
+           return;
+         }
+  
+         names[name._id] = name;
+       });
+  });
+  
+  router.get('/contests/:contestId', (req, res) => {
+    db.collection('contests')
+       .findOne({ _id: mongoose.Types.ObjectId(req.params.contestId) })
+       .then(contest => res.send(contest))
+       .catch(error => {
+         console.error(error);
+         res.status(404).send('Bad Request');
+       });
+  });
+
 //Specify router configured for {host):{port}/api/anyroutehere
 app.use('/api', router);
 
